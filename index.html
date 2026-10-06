@@ -1,146 +1,255 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rose Love ❤️</title>
 
-<title>Rose Love ❤️ | Romantic Rose Website</title>
-<style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-body{
-  height:100vh;
-  overflow:hidden;
-  background:radial-gradient(circle,#5b0038,#160016 70%);
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  font-family:Arial,sans-serif;
-}
+    body {
+      margin: 0;
+      min-height: 100vh;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at center, #5c0018 0%, #21000b 45%, #050005 100%);
+      font-family: Georgia, serif;
+      color: white;
+    }
 
-.box{
-  text-align:center;
-  position:relative;
-  z-index:10;
-}
+    .scene {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-h1{
-  color:white;
-  font-size:clamp(45px,12vw,100px);
-  text-shadow:
-    0 0 10px #ff0066,
-    0 0 30px #ff0066,
-    0 8px 0 #8b003d;
-  animation:pulse 1.5s infinite;
-}
+    /* Glowing background */
+    .glow {
+      position: absolute;
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      background: #ff1744;
+      filter: blur(90px);
+      opacity: .28;
+      animation: glow 3s infinite alternate;
+    }
 
-.heart{
-  font-size:100px;
-  margin-top:20px;
-  filter:drop-shadow(0 0 25px #ff0066);
-  animation:heart 2s infinite;
-}
+    @keyframes glow {
+      from {
+        transform: scale(.8);
+        opacity: .18;
+      }
+      to {
+        transform: scale(1.25);
+        opacity: .4;
+      }
+    }
 
-p{
-  color:#ffd6e8;
-  margin-top:20px;
-  letter-spacing:4px;
-}
+    /* Main content */
+    .content {
+      position: relative;
+      z-index: 5;
+      text-align: center;
+      animation: appear 2s ease forwards;
+    }
 
-@keyframes pulse{
-  0%,100%{transform:scale(1);}
-  50%{transform:scale(1.08);}
-}
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(40px) scale(.8);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
 
-@keyframes heart{
-  0%,100%{
-    transform:rotateY(-15deg) scale(1);
-  }
-  50%{
-    transform:rotateY(15deg) scale(1.2);
-  }
-}
+    h1 {
+      margin: 0;
+      font-size: clamp(45px, 13vw, 100px);
+      color: #fff;
+      text-shadow:
+        0 0 10px #ff1744,
+        0 0 25px #ff1744,
+        0 0 50px #ff1744;
+      animation: heartbeat 1.5s infinite;
+    }
 
-.rose{
-  position:absolute;
-  top:-60px;
-  font-size:35px;
-  animation:fall linear forwards;
-}
+    .love {
+      margin-top: 12px;
+      font-size: clamp(22px, 6vw, 42px);
+      letter-spacing: 5px;
+      color: #ffb6c1;
+      text-shadow: 0 0 15px #ff1744;
+    }
 
-@keyframes fall{
-  from{
-    transform:translateY(-60px) rotate(0deg);
-    opacity:0;
-  }
+    /* Rose */
+    .rose {
+      position: relative;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 20px;
+      animation: roseFloat 3s ease-in-out infinite;
+      filter: drop-shadow(0 0 25px #ff1744);
+    }
 
-  10%{
-    opacity:1;
-  }
+    .petal {
+      position: absolute;
+      width: 75px;
+      height: 95px;
+      background: linear-gradient(135deg, #ff1744, #8b001f);
+      border-radius: 70% 30% 70% 30%;
+      left: 38px;
+      top: 28px;
+      transform-origin: bottom right;
+      box-shadow: inset -8px -8px 15px #650015;
+    }
 
-  to{
-    transform:translateY(110vh) rotate(360deg);
-    opacity:0;
-  }
-}
+    .p1 { transform: rotate(0deg) translate(12px); }
+    .p2 { transform: rotate(45deg) translate(12px); }
+    .p3 { transform: rotate(90deg) translate(12px); }
+    .p4 { transform: rotate(135deg) translate(12px); }
+    .p5 { transform: rotate(180deg) translate(12px); }
+    .p6 { transform: rotate(225deg) translate(12px); }
+    .p7 { transform: rotate(270deg) translate(12px); }
+    .p8 { transform: rotate(315deg) translate(12px); }
 
-.petal{
-  position:absolute;
-  top:-30px;
-  width:13px;
-  height:20px;
-  background:#ff397d;
-  border-radius:100% 0 100% 0;
-  box-shadow:0 0 10px #ff397d;
-  animation:petalFall linear forwards;
-}
+    .center {
+      position: absolute;
+      width: 45px;
+      height: 45px;
+      background: radial-gradient(circle, #ff9aaa, #b0002a 65%, #620015);
+      border-radius: 50%;
+      left: 53px;
+      top: 53px;
+      box-shadow: 0 0 20px #ff1744;
+      z-index: 3;
+    }
 
-@keyframes petalFall{
-  from{
-    transform:translateY(-30px) rotate(0);
-  }
+    @keyframes roseFloat {
+      0%, 100% {
+        transform: translateY(0) rotate(-3deg) scale(1);
+      }
+      50% {
+        transform: translateY(-18px) rotate(3deg) scale(1.06);
+      }
+    }
 
-  to{
-    transform:translateY(110vh) translateX(100px) rotate(500deg);
-  }
-}
-</style>
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      15% { transform: scale(1.08); }
+      30% { transform: scale(1); }
+      45% { transform: scale(1.06); }
+    }
+
+    /* Falling petals */
+    .fall {
+      position: absolute;
+      top: -50px;
+      font-size: 24px;
+      animation: falling linear infinite;
+      opacity: .9;
+      z-index: 2;
+    }
+
+    @keyframes falling {
+      0% {
+        transform: translateY(-50px) rotate(0deg);
+      }
+      100% {
+        transform: translateY(110vh) rotate(720deg);
+      }
+    }
+
+    /* Hearts */
+    .heart {
+      position: absolute;
+      color: #ff416c;
+      font-size: 20px;
+      animation: floatHeart 6s linear infinite;
+      opacity: 0;
+      z-index: 1;
+      text-shadow: 0 0 12px #ff1744;
+    }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(100vh) scale(.5);
+        opacity: 0;
+      }
+      20% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-20vh) scale(1.5);
+        opacity: 0;
+      }
+    }
+
+    .subtitle {
+      margin-top: 18px;
+      font-size: 16px;
+      color: #ffd1dc;
+      opacity: .9;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="box">
-  <h1>I LOVE YOU</h1>
-  <div class="heart">❤️</div>
-  <p>FOREVER & ALWAYS</p>
-</div>
+  <div class="scene">
 
-<script>
+    <div class="glow"></div>
 
-function rose(){
+    <!-- Falling rose petals -->
+    <span class="fall" style="left:5%; animation-duration:7s; animation-delay:0s;">🌹</span>
+    <span class="fall" style="left:15%; animation-duration:9s; animation-delay:2s;">🌸</span>
+    <span class="fall" style="left:28%; animation-duration:6s; animation-delay:1s;">🌹</span>
+    <span class="fall" style="left:42%; animation-duration:8s; animation-delay:3s;">🌸</span>
+    <span class="fall" style="left:58%; animation-duration:7s; animation-delay:1s;">🌹</span>
+    <span class="fall" style="left:72%; animation-duration:10s; animation-delay:2s;">🌸</span>
+    <span class="fall" style="left:86%; animation-duration:6s; animation-delay:0s;">🌹</span>
+    <span class="fall" style="left:95%; animation-duration:8s; animation-delay:4s;">🌸</span>
 
-  let r=document.createElement("div");
+    <!-- Floating hearts -->
+    <span class="heart" style="left:10%; animation-delay:1s;">❤️</span>
+    <span class="heart" style="left:25%; animation-delay:3s;">💗</span>
+    <span class="heart" style="left:50%; animation-delay:0s;">❤️</span>
+    <span class="heart" style="left:70%; animation-delay:2s;">💖</span>
+    <span class="heart" style="left:90%; animation-delay:4s;">❤️</span>
 
-  r.className="rose";
-  r.innerHTML="🌹";
+    <div class="content">
 
-  r.style.left=Math.random()*100+"vw";
+      <div class="rose">
+        <div class="petal p1"></div>
+        <div class="petal p2"></div>
+        <div class="petal p3"></div>
+        <div class="petal p4"></div>
+        <div class="petal p5"></div>
+        <div class="petal p6"></div>
+        <div class="petal p7"></div>
+        <div class="petal p8"></div>
+        <div class="center"></div>
+      </div>
 
-  r.style.fontSize=
-    (25+Math.random()*30)+"px";
+      <h1>Rose Love ❤️</h1>
 
-  r.style.animationDuration=
-    (4+Math.random()*5)+"s";
+      <div class="love">I LOVE YOU</div>
 
-  document.body.appendChild(r);
+      <div class="subtitle">
+        A rose made with love 🌹
+      </div>
 
-  setTimeout(()=>{
-    r.remove();
-  },9000);
-}
+    </div>
+  </div>
 
-setInterval
+</body>
+</html>
